@@ -1,0 +1,7 @@
+{
+    "name": "com.harumaro.debug_extensions",
+    "version": "0.1.1",
+    "displayName": "UnityDebugExtensions",
+    "description": "An extended Unity debugging library.",
+    "unity": "2020.3"
+}

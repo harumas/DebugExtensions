@@ -1,0 +1,18 @@
+{
+    "name": "DebugEx.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:41e66e27d8e32a44d9da9b78cc094c8a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
