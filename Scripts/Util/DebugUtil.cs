@@ -1,6 +1,12 @@
 using System;
 using System.Reflection;
+
+#if UNITY_EDITOR
 using UnityEditor;
+
+#else
+using UnityEngine;
+#endif
 
 public static class DebugUtil {
     public static MethodInfo GetClearConsoleMethodInfo() {
@@ -24,7 +30,7 @@ public static class DebugUtil {
 #if UNITY_EDITOR
         return EditorJsonUtility.ToJson(obj, true);
 #else
-            return  JsonUtility.ToJson(obj, true);
+        return JsonUtility.ToJson(obj, true);
 #endif
     }
 }
