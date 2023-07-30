@@ -9,5 +9,5 @@ https://qiita.com/HarumaroJP/items/bc5c49bf7c229fc24346
 ## インストール方法
 UPM(Unity Package Manager)に以下のリンクを追加してください。
 ```
-https://github.com/HarumaroJP/DebugExtensions.git
+https://github.com/HarumaroJP/DebugExtensions.git#src
 ```
