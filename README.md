@@ -1,5 +1,6 @@
 # DebugExtensions
 UnityEngine.Debugの拡張版です。
+使用する際は、ScriptDefineSymbolsに "ENABLE_DEBUGEX" を追加してください。
 
 ### 紹介記事
 https://qiita.com/HarumaroJP/items/bc5c49bf7c229fc24346
