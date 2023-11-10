@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using System.IO;
 using System.Text;
+using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 namespace Wanna.DebugEx
@@ -51,6 +53,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log<T>(IEnumerable<T> message)
         {
             Debug.unityLogger.Log(LogType.Log, ConvertEnumerableToObject(message));
@@ -60,6 +63,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log<T1, T2>(IEnumerable<KeyValuePair<T1, T2>> message)
         {
             Debug.unityLogger.Log(LogType.Log, ConvertEnumerableToObject(message));
@@ -69,6 +73,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(string message)
         {
             Debug.unityLogger.Log(LogType.Log, message);
@@ -79,6 +84,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(Color message)
         {
             Debug.unityLogger.Log(LogType.Log, ObjectParser.ParseColor(message));
@@ -89,6 +95,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(object message)
         {
             Debug.unityLogger.Log(LogType.Log, message);
@@ -103,6 +110,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log<T>(IEnumerable<T> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Log, ConvertEnumerableToObject(message), context);
@@ -113,6 +121,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Log, ConvertEnumerableToObject(message), context);
@@ -123,6 +132,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(string message, Object context)
         {
             Debug.unityLogger.Log(LogType.Log, (object)message, context);
@@ -133,6 +143,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(Color message, Object context)
         {
             Debug.unityLogger.Log(LogType.Log, (object)ObjectParser.ParseColor(message), context);
@@ -144,6 +155,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Log(object message, Object context)
         {
             Debug.unityLogger.Log(LogType.Log, message, context);
@@ -158,6 +170,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogFormat(string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Log, format, args);
@@ -170,6 +183,7 @@ namespace Wanna.DebugEx
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogFormat(Object context, string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Log, context, format, args);
@@ -184,6 +198,7 @@ namespace Wanna.DebugEx
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="logType">Type of message e.g. warn or error etc.</param>
         /// <param name="logOptions">Option flags to treat the log message special.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogFormat(
             LogType logType,
             LogOption logOptions,
@@ -203,6 +218,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an assertion message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion<T>(IEnumerable<T> message)
         {
             Debug.unityLogger.Log(LogType.Assert, ConvertEnumerableToObject(message));
@@ -212,6 +228,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an assertion message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message)
         {
             Debug.unityLogger.Log(LogType.Assert, ConvertEnumerableToObject(message));
@@ -221,6 +238,7 @@ namespace Wanna.DebugEx
         ///   <para>Logs a message to the Unity Console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion(Color message)
         {
             Debug.unityLogger.Log(LogType.Assert, ObjectParser.ParseColor(message));
@@ -231,6 +249,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an assertion message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion(object message)
         {
             Debug.unityLogger.Log(LogType.Assert, message);
@@ -245,6 +264,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion<T>(IEnumerable<T> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Assert, ConvertEnumerableToObject(message), context);
@@ -256,6 +276,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Assert, ConvertEnumerableToObject(message), context);
@@ -267,6 +288,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion(Color message, Object context)
         {
             Debug.unityLogger.Log(LogType.Assert, (object)ObjectParser.ParseColor(message), context);
@@ -277,6 +299,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertion(object message, Object context)
         {
             Debug.unityLogger.Log(LogType.Assert, message, context);
@@ -291,6 +314,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertionFormat(string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Assert, format, args);
@@ -303,6 +327,7 @@ namespace Wanna.DebugEx
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogAssertionFormat(Object context, string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Assert, context, format, args);
@@ -316,6 +341,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning<T>(IEnumerable<T> message)
         {
             Debug.unityLogger.Log(LogType.Warning, ConvertEnumerableToObject(message));
@@ -325,6 +351,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message)
         {
             Debug.unityLogger.Log(LogType.Warning, ConvertEnumerableToObject(message));
@@ -335,6 +362,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(string message)
         {
             Debug.unityLogger.Log(LogType.Warning, message);
@@ -344,6 +372,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(Color message)
         {
             Debug.unityLogger.Log(LogType.Warning, (object)ObjectParser.ParseColor(message));
@@ -354,6 +383,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(object message)
         {
             Debug.unityLogger.Log(LogType.Warning, message);
@@ -368,6 +398,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning<T>(IEnumerable<T> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Warning, ConvertEnumerableToObject(message), context);
@@ -379,6 +410,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Warning, ConvertEnumerableToObject(message), context);
@@ -390,6 +422,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(string message, Object context)
         {
             Debug.unityLogger.Log(LogType.Warning, (object)message, context);
@@ -400,6 +433,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(Color message, Object context)
         {
             Debug.unityLogger.Log(LogType.Warning, (object)ObjectParser.ParseColor(message), context);
@@ -410,6 +444,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarning(object message, Object context)
         {
             Debug.unityLogger.Log(LogType.Warning, message, context);
@@ -424,6 +459,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarningFormat(string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Warning, format, args);
@@ -436,6 +472,7 @@ namespace Wanna.DebugEx
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogWarningFormat(Object context, string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Warning, context, format, args);
@@ -458,6 +495,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an error message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError(string message)
         {
             Debug.unityLogger.Log(LogType.Error, message);
@@ -468,6 +506,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an error message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError<T>(IEnumerable<T> message)
         {
             Debug.unityLogger.Log(LogType.Error, ConvertEnumerableToObject(message));
@@ -478,6 +517,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an error message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message)
         {
             Debug.unityLogger.Log(LogType.Error, ConvertEnumerableToObject(message));
@@ -487,6 +527,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an error message to the console.</para>
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError(Color message)
         {
             Debug.unityLogger.Log(LogType.Error, (object)ObjectParser.ParseColor(message));
@@ -501,6 +542,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError<T>(IEnumerable<T> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Error, ConvertEnumerableToObject(message), context);
@@ -512,6 +554,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> message, Object context)
         {
             Debug.unityLogger.Log(LogType.Error, ConvertEnumerableToObject(message), context);
@@ -522,6 +565,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError(Color message, Object context)
         {
             Debug.unityLogger.Log(LogType.Error, (object)ObjectParser.ParseColor(message), context);
@@ -533,6 +577,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="message">String or object to be converted to string representation for display.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogError(object message, Object context)
         {
             Debug.unityLogger.Log(LogType.Error, message, context);
@@ -547,6 +592,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogErrorFormat(string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Error, format, args);
@@ -559,6 +605,7 @@ namespace Wanna.DebugEx
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogErrorFormat(Object context, string format, params object[] args)
         {
             Debug.unityLogger.LogFormat(LogType.Error, context, format, args);
@@ -572,6 +619,7 @@ namespace Wanna.DebugEx
         ///   <para>A variant of Debug.Log that logs an error message to the console.</para>
         /// </summary>
         /// <param name="exception">Runtime Exception.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogException(Exception exception)
         {
             Debug.unityLogger.LogException(exception, (Object)null);
@@ -583,6 +631,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="exception">Runtime Exception.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void LogException(Exception exception, Object context)
         {
             Debug.unityLogger.LogException(exception, context);
@@ -598,6 +647,7 @@ namespace Wanna.DebugEx
         /// <param name="end">Point in world space where the line should end.</param>
         /// <param name="color">Color of the line.</param>
         /// <param name="duration">How long the line should be visible for.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration)
         {
             Debug.DrawLine(start, end, color, duration, true);
@@ -610,6 +660,7 @@ namespace Wanna.DebugEx
         /// <param name="start">Point in world space where the line should start.</param>
         /// <param name="end">Point in world space where the line should end.</param>
         /// <param name="color">Color of the line.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawLine(Vector3 start, Vector3 end, Color color)
         {
             Debug.DrawLine(start, end, color, 0.0f, true);
@@ -621,6 +672,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="start">Point in world space where the line should start.</param>
         /// <param name="end">Point in world space where the line should end.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawLine(Vector3 start, Vector3 end)
         {
             Debug.DrawLine(start, end, Color.white, 0.0f, true);
@@ -634,6 +686,7 @@ namespace Wanna.DebugEx
         /// <param name="dir">Direction and length of the ray.</param>
         /// <param name="color">Color of the drawn line.</param>
         /// <param name="duration">How long the line will be visible for (in seconds).</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawRay(Vector3 start, Vector3 dir, Color color, float duration)
         {
             Debug.DrawRay(start, dir, color, duration, true);
@@ -646,6 +699,7 @@ namespace Wanna.DebugEx
         /// <param name="start">Point in world space where the ray should start.</param>
         /// <param name="dir">Direction and length of the ray.</param>
         /// <param name="color">Color of the drawn line.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawRay(Vector3 start, Vector3 dir, Color color)
         {
             Debug.DrawRay(start, dir, color, 0.0f, true);
@@ -657,6 +711,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="start">Point in world space where the ray should start.</param>
         /// <param name="dir">Direction and length of the ray.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void DrawRay(Vector3 start, Vector3 dir)
         {
             Debug.DrawRay(start, dir, Color.white, 0.0f, true);
@@ -668,6 +723,7 @@ namespace Wanna.DebugEx
         ///   <para>Assert a condition and logs an error message to the Unity console on failure.</para>
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition)
         {
             if (condition) return;
@@ -680,6 +736,7 @@ namespace Wanna.DebugEx
         ///   <para>Assert a condition and logs an error message to the Unity console on failure.</para>
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, Object context)
         {
             if (condition) return;
@@ -693,6 +750,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, object message)
         {
             if (condition) return;
@@ -706,6 +764,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert<T>(bool condition, IEnumerable<T> message)
         {
             if (condition) return;
@@ -719,6 +778,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert<TKey, TValue>(bool condition, IEnumerable<KeyValuePair<TKey, TValue>> message)
         {
             if (condition) return;
@@ -732,6 +792,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, Color message)
         {
             if (condition) return;
@@ -745,6 +806,7 @@ namespace Wanna.DebugEx
         /// </summary>
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, string message)
         {
             if (condition) return;
@@ -759,6 +821,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert<T>(bool condition, IEnumerable<T> message, Object context)
         {
             if (condition) return;
@@ -773,6 +836,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert<TKey, TValue>(
             bool condition,
             IEnumerable<KeyValuePair<TKey, TValue>> message,
@@ -791,6 +855,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, object message, Object context)
         {
             if (condition) return;
@@ -804,6 +869,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, Color message, Object context)
         {
             if (condition) return;
@@ -818,6 +884,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="context">Object to which the message applies.</param>
         /// <param name="message">String or object to be converted to string representation for display.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void Assert(bool condition, string message, Object context)
         {
             if (condition) return;
@@ -835,6 +902,7 @@ namespace Wanna.DebugEx
         /// <param name="condition">Condition you expect to be true.</param>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void AssertFormat(bool condition, string format, params object[] args)
         {
             if (condition) return;
@@ -850,6 +918,7 @@ namespace Wanna.DebugEx
         /// <param name="format">A composite format string.</param>
         /// <param name="args">Format arguments.</param>
         /// <param name="context">Object to which the message applies.</param>
+        [Conditional("ENABLE_DEBUGEX")]
         public static void AssertFormat(bool condition, Object context, string format, params object[] args)
         {
             if (condition) return;
