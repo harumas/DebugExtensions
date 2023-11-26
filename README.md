@@ -11,5 +11,5 @@ https://github.com/HarumaroJP/DebugExtensions/tree/src
 ## インストール方法
 UPM(Unity Package Manager)に以下のリンクを追加してください。
 ```
-https://github.com/HarumaroJP/DebugExtensions
+https://github.com/HarumaroJP/DebugExtensions.git
 ```
